@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Number Guess Game</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+   <style>
+    #guess
+    {
+        background-color: white;
+        color: black;
+        border:2px solid #350115;
+        border-radius: 10px;
+        width: 100px;
+        height: 50px;
+        text-align: center;
+    }
+    #btn
+    {
+        background-color: rgb(235, 13, 13);
+        color: rgb(19, 18, 18);
+        border:2px solid #f06fa0;
+        border-radius: 5px;
+        width: 63px;
+        height: 40px;
+        text-align: center;
+    }
+   </style>
+
+</head>
+<body bgcolor="sky-blue">
+    <center><h1 style="background-color: rgb(206, 206, 12);">GUESSING CHALLENGE WITH US!!!</h1>
+    <h2 >Guess My Number here !!!</h2>
+    <h1>?</h1>
+    <h3>(Between 1 to 100)</h3>
+    <input  id="guess"><br><br>
+    <button id="btn" onclick="check()"><b>CHECK?</b> 
+        </button><br>
+    <h3 id="Guessed"> </h3>
+    <h3 style=color:crimson id="score">Score: 20<br></h3>
+    <h2 id="res">Yes Is it :)/Nope :( Is Not</h2>
+</center>
+<footer style="text-align: center;">
+    <b style="color: rgb(248, 26, 155);">Made by @rama47</b>
+</footer>
+
+</body>
+<script>
+var gue=document.getElementById("guess");
+
+var result=document.getElementById("res");
+var score=document.getElementById("score");
+var r=Math.floor(Math.random()*100)+1;
+var ts=20;
+var num=document.getElementById("Guessed")
+
+function check()
+{
+   
+   var g=gue.value;
+  
+if(g==r)
+{
+    
+    result.textContent="Yes Is it :)"
+    alert("YOU WON!!!");
+    num.textContent="Guessed Number"+r;
+}
+else if(g>r)
+{
+    ts=ts-1;
+    if(ts<=0)
+    {
+        num.textContent="Guessed Number"+r;
+    }
+    score.textContent="Score"+ts;
+   
+    result.textContent="Nope :( Is Not";
+    num.textContent="Guessed Number is too high"
+}
+else if(g<r)
+{
+    ts=ts-1;
+    if(ts<=0)
+    {
+        num.textContent="Guessed Number"+r;
+    }
+    score.textContent="Score"+ts;
+   
+    result.textContent="Nope :( Is Not";
+    num.textContent="Guessed Number is too low"
+}
+
+}
+
+</script>
+</html>
